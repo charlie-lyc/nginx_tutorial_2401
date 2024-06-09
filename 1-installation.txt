@@ -1,0 +1,37 @@
+% brew update
+...
+
+% brew upgrade
+...
+
+% brew install nginx
+...
+
+% which nginx
+/opt/homebrew/bin/nginx
+
+% cd /opt/homebrew/etc/nginx
+% pwd
+/opt/homebrew/etc/nginx
+
+% ll
+total 136
+-rw-r--r--  1 charlie  admin   1.1K Jun 10 03:05 fastcgi.conf
+-rw-r--r--  1 charlie  admin   1.1K Jun 10 03:05 fastcgi.conf.default
+-rw-r--r--  1 charlie  admin   1.0K Jun 10 03:05 fastcgi_params
+-rw-r--r--  1 charlie  admin   1.0K Jun 10 03:05 fastcgi_params.default
+-rw-r--r--  1 charlie  admin   2.8K Jun 10 03:05 koi-utf
+-rw-r--r--  1 charlie  admin   2.2K Jun 10 03:05 koi-win
+-rw-r--r--  1 charlie  admin   5.2K Jun 10 03:05 mime.types
+-rw-r--r--  1 charlie  admin   5.2K Jun 10 03:05 mime.types.default
+-rw-r--r--  1 charlie  admin   2.6K Jun 10 03:05 nginx.conf
+-rw-r--r--  1 charlie  admin   2.6K Jun 10 03:05 nginx.conf.default
+-rw-r--r--  1 charlie  admin   636B Jun 10 03:05 scgi_params
+-rw-r--r--  1 charlie  admin   636B Jun 10 03:05 scgi_params.default
+drwxr-xr-x  2 charlie  admin    64B Jun 10 00:57 servers
+-rw-r--r--  1 charlie  admin   664B Jun 10 03:05 uwsgi_params
+-rw-r--r--  1 charlie  admin   664B Jun 10 03:05 uwsgi_params.default
+-rw-r--r--  1 charlie  admin   3.5K Jun 10 03:05 win-utf
+
+% code .
+...
