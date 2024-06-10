@@ -35,7 +35,7 @@ nginx: configuration file /opt/homebrew/etc/nginx/nginx.conf test is successful
 
 --------------------------------------------------------------------------------
 
-Reload
+Hard reload(Command + Shift + R)
 
 http://localhost:8080
 
