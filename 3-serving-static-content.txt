@@ -1,1 +1,4 @@
-
+% mkdir mysite
+% cd mysite
+% code .
+--------------------
