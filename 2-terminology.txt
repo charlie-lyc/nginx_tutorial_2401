@@ -10,8 +10,8 @@ worker_processes  1;
 #pid        logs/nginx.pid;
 
 
-events {                            # <-- (1) context!
-    worker_connections  1024;       # <-- (2) key and value!
+events {                            # <-- (1) context (block)!!!
+    worker_connections  1024;       # <-- (2) directive (key and value)!!!
 }
 
 
