@@ -5,6 +5,7 @@
 ...
 
 --------------------------------------------------------------------------------
+<!-- /Users/charlie/Desktop/mysite/index.html -->
 
 <html>
     <body>
@@ -13,8 +14,7 @@
 </html>
 
 --------------------------------------------------------------------------------
-
---- ### nginx.conf ### --- After removing all!
+### nginx.conf ### After removing all!
 
 http {
     server {
