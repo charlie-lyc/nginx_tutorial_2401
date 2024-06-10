@@ -7,7 +7,13 @@
 --------------------------------------------------------------------------------
 <!-- /Users/charlie/Desktop/mysite/index.html -->
 
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My NginX project</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
     <body>
          <h1>Hello my friends. I am served form NginX.</h1>
     </body>
