@@ -2,21 +2,30 @@
 % mkdir mysite
 % cd mysite
 % code index.html
----------------------------------------------------------------------------
+...
+--------------------------------------------------------------------------------
+
 <html>
     <body>
          <h1>Hello my friends. I am served form NginX.</h1>
     </body>
 </html>
----------------------------------------------------------------------------
---- ### nginx.conf ### --- Remove all!
 
+--------------------------------------------------------------------------------
+--- ### nginx.conf ### --- After removing all!
 
+http {
+    server {
+        listen 8080;
+        root /Users/charlie/Desktop/mysite;
+    }
+}
 
+events {}
 
+--------------------------------------------------------------------------------
+% nginx -t
+nginx: the configuration file /opt/homebrew/etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /opt/homebrew/etc/nginx/nginx.conf test is successful
 
-
-
-
-
----------------------------------------------------------------------------
+% nginx -s reload
