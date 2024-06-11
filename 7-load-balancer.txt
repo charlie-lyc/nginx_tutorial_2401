@@ -10,18 +10,39 @@
 ...
 
 % npm install express
+...
 
 --------------------------------------------------------------------------------
+// /Users/charlie/Desktop/mysite/server/package.json
+
+...
+"scripts": {
+    "start": "npm run start"
+}
+...
+
+--------------------------------------------------------------------------------
+
 // /Users/charlie/Desktop/mysite/server/index.js
+
 const express = require('express')
 
-const app = exress()
+const app = express()
 
 app.get('/', (req, res) => {
-    res.send('I am a 
+    res.send('I am an endpoint')
 })
 
-app.listen(, () => {})
+app.listen(7777, () => {
+    console.log('listening on port 7777')
+})
+
+--------------------------------------------------------------------------------
+// in terminal on vs code
+
+% npm run start
+
+
 --------------------------------------------------------------------------------
 ### nginx.conf
 
