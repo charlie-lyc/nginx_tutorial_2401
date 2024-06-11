@@ -117,6 +117,8 @@ Hard reload   http://localhost:8080/carbs
 </html>
 
 --------------------------------------------------------------------------------
+### nginx.conf
+
 http {
 
     #types {
@@ -151,3 +153,68 @@ http {
 }
 
 events {}
+
+--------------------------------------------------------------------------------
+
+% nginx -s reload
+
+--------------------------------------------------------------------------------
+
+Hard reload   http://localhost:8080/vegetables
+
+--------------------------------------------------------------------------------
+
+### nginx.conf
+
+http {
+
+    #types {
+    #    text/css   css;
+    #    text/html html;
+    #}
+    include mime.types;
+
+    server {
+        listen 8080;
+        root /Users/charlie/Desktop/mysite;
+
+        location /fruits {
+            root /Users/charlie/Desktop/mysite;
+        }
+
+        location /carbs {
+            #root /Users/charlie/Desktop/mysite;                 # 404 Not Found
+            alias /Users/charlie/Desktop/mysite/fruits;
+        }
+
+        location /vegetables {
+            root /Users/charlie/Desktop/mysite;                  # 403 Forbidden
+            try_files /vegetables/veggies.html /index.html =404;
+        }
+
+        # /vegetables/index.html 을 찾아보고 없으면 /vegetables/veggies.html 을 찾아라
+        # /vegetables/veggies.html 도 없다면 /index.html 을 찾아라
+        # /index.html 도 없다면 404 에러로 처리하라
+
+        # Dynamic routes: 일종의 '정규표현'을 이용
+        # -> route like '/count/<any number>'
+        location ~* /count/[0-9] {
+            root /Users/charlie/Desktop/mysite;
+            try_files /index.html =404;
+        }
+     
+    }
+
+}
+
+events {}
+
+--------------------------------------------------------------------------------
+
+% nginx -s reload
+
+--------------------------------------------------------------------------------
+
+Hard reload   http://localhost:8080/count/100
+
+--------------------------------------------------------------------------------
