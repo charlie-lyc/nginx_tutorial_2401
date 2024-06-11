@@ -3,10 +3,10 @@
 
 http {
 
-    #types {
-    #    text/css   css;
-    #    text/html html;
-    #}
+    # types {
+    #     text/css   css;
+    #     text/html html;
+    # }
     include mime.types;
 
     server {
@@ -18,7 +18,7 @@ http {
         }
 
         location /carbs {
-            #root /Users/charlie/Desktop/mysite;                 # 404 Not Found
+            # root /Users/charlie/Desktop/mysite;                 # 404 Not Found
             alias /Users/charlie/Desktop/mysite/fruits;
         }
 
@@ -53,10 +53,10 @@ events {}
 
 --------------------------------------------------------------------------------
 
-                                          redirect
+                                          * redirect
 Hard reload   http://localhost:8080/crops -> http://localhost:8080/fruits
 
-                                              rewrite 
+                                               * rewrite 
 Hard reload   http://localhost:8080/nuber/100 (<- http://localhost:8080/count/100)
 
 --------------------------------------------------------------------------------
