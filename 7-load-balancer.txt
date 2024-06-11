@@ -30,7 +30,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('I am an endpoint')
+    res.send('I am an endpoint.')
 })
 
 app.listen(7777, () => {
@@ -40,10 +40,56 @@ app.listen(7777, () => {
 --------------------------------------------------------------------------------
 // in terminal on vs code
 
-% npm run start
+% npm start
+> server@1.0.0 start
+> node index.js
 
+listening on port 7777
 
 --------------------------------------------------------------------------------
+
+Type in browser : http://localhost:7777
+
+I am an endpoint.
+--------------------------------------------------------------------------------
+
+Search in Google : "dockerfile from expressjs app"
+
+--------------------------------------------------------------------------------
+### /Users/charlie/Desktop/mysite/Dockerfile
+
+# Use the official Node.js image from Docker Hub
+FROM node:20
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy only the package.json and package-lock.json (if exists) to leverage Docker cache
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of the application files to the container
+COPY . .
+
+# Set port number
+EXPOSE 7777
+
+# Set the default command to run the application
+CMD ["node", "index.js"]
+
+--------------------------------------------------------------------------------
+// in terminal on vs code
+
+% npm start
+> server@1.0.0 start
+> node index.js
+
+listening on port 7777
+
+--------------------------------------------------------------------------------
+
 ### nginx.conf
 
 http {
