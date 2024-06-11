@@ -72,10 +72,10 @@ Hard reload   http://localhost:8080
 
 http {
 
-    #types {
-    #    text/css   css;
-    #    text/html html;
-    #}
+    # types {
+    #     text/css   css;
+    #     text/html html;
+    # }
     include mime.types;
 
     server {
