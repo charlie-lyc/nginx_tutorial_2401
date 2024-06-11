@@ -84,10 +84,50 @@ CMD ["node", "index.js"]
 
 % docker build . -t myserver
 ERROR: Cannot connect to the Docker daemon at unix:///Users/charlie/.docker/run/docker.sock. Is the docker daemon running? 
-=> 
+=> 데스크탑용 Docker를 켜고 다시 실행!!!
 
-
-
+% docker build . -t myserver
+[+] Building 45.6s (11/11) FINISHED                                                            docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                           0.0s
+ => => transferring dockerfile: 504B                                                                           0.0s
+ => [internal] load metadata for docker.io/library/node:20                                                     2.7s
+ => [auth] library/node:pull token for registry-1.docker.io                                                    0.0s
+ => [internal] load .dockerignore                                                                              0.0s
+ => => transferring context: 2B                                                                                0.0s
+ => [1/5] FROM docker.io/library/node:20@sha256:ab71b9da5ba19445dc5bb76bf99c218941db2c4d70ff4de4e0d9ec90920b  42.0s
+ => => resolve docker.io/library/node:20@sha256:ab71b9da5ba19445dc5bb76bf99c218941db2c4d70ff4de4e0d9ec90920bf  0.0s
+ => => sha256:ab71b9da5ba19445dc5bb76bf99c218941db2c4d70ff4de4e0d9ec90920bfe3f 1.21kB / 1.21kB                 0.0s
+ => => sha256:9524b78eaff678b74e246b1dec3290539cab0859ebcbacb458f8b956af9f75bc 2.00kB / 2.00kB                 0.0s
+ => => sha256:2c6213d49b9c3530f5094b670f42e514b46410f6413fcb7d6c7efe5075618ddc 7.43kB / 7.43kB                 0.0s
+ => => sha256:91e301773f03e9e0fabc5c177fe6bfe8daf14e992ab816f151692b814ddc462c 49.61MB / 49.61MB               8.7s
+ => => sha256:15856ca26414127b85cee6d10acbc4cee6eba9070f3f5a04b9cc72ce95abfa7f 23.59MB / 23.59MB               8.6s
+ => => sha256:30ed4c12791345d3f20f66024e1f22275ce507868c508509b83dcf231b1c9adc 63.99MB / 63.99MB              23.2s
+ => => sha256:feb30c5ba2d151512d29ff4b92109a740559509ef6f3072a86c5006a1379397b 202.59MB / 202.59MB            36.6s
+ => => extracting sha256:91e301773f03e9e0fabc5c177fe6bfe8daf14e992ab816f151692b814ddc462c                      1.3s
+ => => sha256:aba0074d2a49ce1652f6a9bb7511352ff888b5cf24f38f69acb154d345951f2a 3.37kB / 3.37kB                 9.1s
+ => => sha256:39076d46b9e2a23822a5e7a95bb8c34f7e474d994e30174cd9d000e3d3caa71f 47.97MB / 47.97MB              24.8s
+ => => extracting sha256:15856ca26414127b85cee6d10acbc4cee6eba9070f3f5a04b9cc72ce95abfa7f                      0.3s
+ => => extracting sha256:30ed4c12791345d3f20f66024e1f22275ce507868c508509b83dcf231b1c9adc                      1.5s
+ => => sha256:d977d59ca1ba947adcaa6a92ea04646202d38d488d191ac930b97594e8ae5c30 1.25MB / 1.25MB                24.0s
+ => => sha256:e08af096948111a9c19ce8df6c0a934d5b8db2dace7e3f75c02b59215c07bf32 449B / 449B                    24.3s
+ => => extracting sha256:feb30c5ba2d151512d29ff4b92109a740559509ef6f3072a86c5006a1379397b                      3.8s
+ => => extracting sha256:aba0074d2a49ce1652f6a9bb7511352ff888b5cf24f38f69acb154d345951f2a                      0.0s
+ => => extracting sha256:39076d46b9e2a23822a5e7a95bb8c34f7e474d994e30174cd9d000e3d3caa71f                      1.2s
+ => => extracting sha256:d977d59ca1ba947adcaa6a92ea04646202d38d488d191ac930b97594e8ae5c30                      0.0s
+ => => extracting sha256:e08af096948111a9c19ce8df6c0a934d5b8db2dace7e3f75c02b59215c07bf32                      0.0s
+ => [internal] load build context                                                                              0.1s
+ => => transferring context: 2.21MB                                                                            0.1s
+ => [2/5] WORKDIR /usr/src/app                                                                                 0.2s
+ => [3/5] COPY package*.json ./                                                                                0.0s
+ => [4/5] RUN npm install                                                                                      0.7s
+ => [5/5] COPY . .                                                                                             0.0s
+ => exporting to image                                                                                         0.0s
+ => => exporting layers                                                                                        0.0s
+ => => writing image sha256:ac5016e3a57bfd50c6e3f1818097e34c980aca87ca0c7dc095f656528746297f                   0.0s
+ => => naming to docker.io/library/myserver                                                                    0.0s
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/x1uvwh5cwlkeckan0tez4wfbb
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
 
 --------------------------------------------------------------------------------
 
