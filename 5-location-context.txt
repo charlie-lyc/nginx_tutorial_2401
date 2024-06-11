@@ -26,10 +26,10 @@
 
 http {
 
-    #types {
-    #    text/css   css;
-    #    text/html html;
-    #}
+    # types {
+    #     text/css   css;
+    #     text/html html;
+    # }
     include mime.types;
 
     server {
@@ -58,10 +58,10 @@ Hard reload   http://localhost:8080/fruits
 
 http {
 
-    #types {
-    #    text/css   css;
-    #    text/html html;
-    #}
+    # types {
+    #     text/css   css;
+    #     text/html html;
+    # }
     include mime.types;
 
     server {
@@ -73,7 +73,7 @@ http {
         }
 
         location /carbs {
-            #root /Users/charlie/Desktop/mysite;        # 404 Not Found
+            # root /Users/charlie/Desktop/mysite;        # 404 Not Found
             alias /Users/charlie/Desktop/mysite/fruits;
         }
 
@@ -121,10 +121,10 @@ Hard reload   http://localhost:8080/carbs
 
 http {
 
-    #types {
-    #    text/css   css;
-    #    text/html html;
-    #}
+    # types {
+    #     text/css   css;
+    #     text/html html;
+    # }
     include mime.types;
 
     server {
@@ -136,7 +136,7 @@ http {
         }
 
         location /carbs {
-            #root /Users/charlie/Desktop/mysite;                 # 404 Not Found
+            # root /Users/charlie/Desktop/mysite;                 # 404 Not Found
             alias /Users/charlie/Desktop/mysite/fruits;
         }
 
@@ -168,10 +168,10 @@ Hard reload   http://localhost:8080/vegetables
 
 http {
 
-    #types {
-    #    text/css   css;
-    #    text/html html;
-    #}
+    # types {
+    #     text/css   css;
+    #     text/html html;
+    # }
     include mime.types;
 
     server {
@@ -183,7 +183,7 @@ http {
         }
 
         location /carbs {
-            #root /Users/charlie/Desktop/mysite;                 # 404 Not Found
+            # root /Users/charlie/Desktop/mysite;                 # 404 Not Found
             alias /Users/charlie/Desktop/mysite/fruits;
         }
 
