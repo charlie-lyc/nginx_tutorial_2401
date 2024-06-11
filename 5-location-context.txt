@@ -1,1 +1,73 @@
+% cd /Users/charlie/Desktop/mysite
+% mkdir fruits
+% cd fruits
+% code index.html
+
+--------------------------------------------------------------------------------
+<!-- /Users/charlie/Desktop/mysite/fruits/index.html -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My NginX project</title>
+    </head>
+    <body>
+         <ul>
+            <li>Mango</li>
+            <li>Strawberry</li>
+            <li>Watermelon</li>
+         </ul>
+    </body>
+</html>
+
+--------------------------------------------------------------------------------
+### nginx.conf
+
+http {
+
+    types {
+        text/css   css;
+        text/html html;
+    }
+
+    server {
+        listen 8080;
+        root /Users/charlie/Desktop/mysite;
+
+        location /fruits {
+            root /Users/charlie/Desktop/mysite;
+        }
+
+        location /carbs {
+            #root /Users/charlie/Desktop/mysite;
+            alias /Users/charlie/Desktop/mysite/fruits;
+        }
+
+    }
+}
+
+events {}
+
+--------------------------------------------------------------------------------
+
+% nginx -s reload
+
+--------------------------------------------------------------------------------
+
+Hard reload   http://localhost:8080/fruits
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
