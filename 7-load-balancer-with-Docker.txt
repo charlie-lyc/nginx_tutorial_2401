@@ -82,11 +82,12 @@ CMD ["node", "index.js"]
 --------------------------------------------------------------------------------
 // in terminal on vs code
 
-% npm start
-> server@1.0.0 start
-> node index.js
+% docker build . -t myserver
+ERROR: Cannot connect to the Docker daemon at unix:///Users/charlie/.docker/run/docker.sock. Is the docker daemon running? 
+=> 
 
-listening on port 7777
+
+
 
 --------------------------------------------------------------------------------
 
