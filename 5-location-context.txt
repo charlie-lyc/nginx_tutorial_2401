@@ -26,10 +26,11 @@
 
 http {
 
-    types {
-        text/css   css;
-        text/html html;
-    }
+    #types {
+    #    text/css   css;
+    #    text/html html;
+    #}
+    include mime.types;
 
     server {
         listen 8080;
@@ -37,11 +38,6 @@ http {
 
         location /fruits {
             root /Users/charlie/Desktop/mysite;
-        }
-
-        location /carbs {
-            #root /Users/charlie/Desktop/mysite;
-            alias /Users/charlie/Desktop/mysite/fruits;
         }
 
     }
@@ -58,8 +54,43 @@ events {}
 Hard reload   http://localhost:8080/fruits
 
 --------------------------------------------------------------------------------
+### nginx.conf
 
+http {
 
+    #types {
+    #    text/css   css;
+    #    text/html html;
+    #}
+    include mime.types;
+
+    server {
+        listen 8080;
+        root /Users/charlie/Desktop/mysite;
+
+        location /fruits {
+            root /Users/charlie/Desktop/mysite;
+        }
+
+        location /carbs {
+            #root /Users/charlie/Desktop/mysite;        # 404 Not Found
+            alias /Users/charlie/Desktop/mysite/fruits;
+        }
+
+    }
+}
+
+events {}
+
+--------------------------------------------------------------------------------
+
+% nginx -s reload
+
+--------------------------------------------------------------------------------
+
+Hard reload   http://localhost:8080/carbs
+
+--------------------------------------------------------------------------------
 
 
 
