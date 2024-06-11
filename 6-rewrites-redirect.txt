@@ -1,1 +1,62 @@
-% 
+--------------------------------------------------------------------------------
+### nginx.conf
+
+http {
+
+    #types {
+    #    text/css   css;
+    #    text/html html;
+    #}
+    include mime.types;
+
+    server {
+        listen 8080;
+        root /Users/charlie/Desktop/mysite;
+
+        location /fruits {
+            root /Users/charlie/Desktop/mysite;
+        }
+
+        location /carbs {
+            #root /Users/charlie/Desktop/mysite;                 # 404 Not Found
+            alias /Users/charlie/Desktop/mysite/fruits;
+        }
+
+        location /vegetables {
+            root /Users/charlie/Desktop/mysite;                  # 403 Forbidden
+            try_files /vegetables/veggies.html /index.html =404;
+        }
+
+        location ~* /count/[0-9] {
+            root /Users/charlie/Desktop/mysite;
+            try_files /index.html =404;
+        }
+
+        # Rewrites and Redirect: HTTP status code를 이용
+        # - 307 : temporary redirect
+        # - 308 : permanent redirect 
+        location /crops {
+            return 307 /fruits;
+        }
+
+        rewrite ^/number/(\w+) /count/$1;
+
+    }
+
+}
+
+events {}
+
+--------------------------------------------------------------------------------
+
+% nginx -s reload
+
+--------------------------------------------------------------------------------
+
+                                          redirect
+Hard reload   http://localhost:8080/crops -> http://localhost:8080/fruits
+
+                                              rewrite 
+Hard reload   http://localhost:8080/nuber/100 (<- http://localhost:8080/count/100)
+
+--------------------------------------------------------------------------------
