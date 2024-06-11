@@ -1,1 +1,1 @@
-# nginx_tutorial_2401
+# Nginx Tutorial with NodeJS and Docker on Mac
