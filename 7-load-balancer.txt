@@ -1,0 +1,71 @@
+% cd /Users/charlie/Desktop/mysite
+% mkdir server
+% cd server
+% code index.js
+
+--------------------------------------------------------------------------------
+// in terminal on vs code
+
+% npm init -y
+...
+
+% npm install express
+
+--------------------------------------------------------------------------------
+// /Users/charlie/Desktop/mysite/server/index.js
+const express = require('express')
+
+const app = exress()
+
+app.get('/', (req, res) => {
+    res.send('I am a 
+})
+
+app.listen(, () => {})
+--------------------------------------------------------------------------------
+### nginx.conf
+
+http {
+
+    # types {
+    #    text/css   css;
+    #    text/html html;
+    # }
+    include mime.types;
+
+    server {
+        listen 8080;
+        root /Users/charlie/Desktop/mysite;
+
+        location /fruits {
+            root /Users/charlie/Desktop/mysite;
+        }
+
+        location /carbs {
+            # root /Users/charlie/Desktop/mysite;                 # 404 Not Found
+            alias /Users/charlie/Desktop/mysite/fruits;
+        }
+
+        location /vegetables {
+            root /Users/charlie/Desktop/mysite;                  # 403 Forbidden
+            try_files /vegetables/veggies.html /index.html =404;
+        }
+
+        location ~* /count/[0-9] {
+            root /Users/charlie/Desktop/mysite;
+            try_files /index.html =404;
+        }
+
+        location /crops {
+            return 307 /fruits; # Temporary redirect
+        }
+
+        rewrite ^/number/(\w+) /count/$1;
+
+    }
+
+}
+
+events {}
+
+--------------------------------------------------------------------------------
