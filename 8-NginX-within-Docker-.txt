@@ -10,7 +10,12 @@ http://localhost:8080 으로 접속하면
 --------------------------------------------------------------------------------
 ### [3] NodeJS(ExpressJS) server on NginX in Docker 일 경우
 
-% mkdir ng
+% mkdir nginx-docker
+% cd nginx-docker
+% npm init -y
+% npm install express
+
+
 --------------------------------------------------------------------------------
 
 
