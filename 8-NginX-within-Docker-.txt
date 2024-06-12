@@ -68,39 +68,36 @@ http {
 
 --------------------------------------------------------------------------------
 ### /nginx-docker-server/Dockerfile
-# Stage 1
-FROM node:20
-WORKDIR /app
+
+# Use an official Node.js runtime as a parent image
+FROM node:14
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install Node.js dependencies
 RUN npm install
+
+# Copy the rest of the application code
 COPY . .
-EXPOSE 9999
-CMD ["node", "index.js"]
 
-### /nginx-docker-server/Dockerfile.nginx
-# Stage 2
-FROM nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+# Build the application (if necessary)
+# RUN npm run build
 
-### /nginx-docker-server/docker-compose.yml
-version: '1.0'
-services:
-  express:
-    build: .
-    container_name: express-docker_contain
-    ports:
-      - "9090:9999"
-  nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile.nginx
-    container_name: nginx-docker-server_contain
-    ports:
-      - "8080:9090"
-    depends_on:
-      - express
+# Install Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Copy Nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose the ports
+EXPOSE 80 3000
+
+# Start Nginx and the Node.js application
+CMD service nginx start && npm start
 
 --------------------------------------------------------------------------------
 
