@@ -91,14 +91,14 @@ services:
     build: .
     container_name: express-docker_contain
     ports:
-      - "9999:9999"
+      - "9090:9999"
   nginx:
     build:
       context: .
       dockerfile: Dockerfile.nginx
     container_name: nginx-docker-server_contain
     ports:
-      - "8080:9999"
+      - "8080:9090"
     depends_on:
       - express
 
