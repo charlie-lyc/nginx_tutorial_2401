@@ -1,4 +1,15 @@
-% nginx -s stop
+% brew services stop nginx
+Stopping `nginx`... (might take a while)
+==> Successfully stopped `nginx` (label: homebrew.mxcl.nginx)
+
+% brew services ls                
+Name          Status User File
+mysql         none        
+nginx         none        
+podman        none        
+postgresql@14 none        
+postgresql@15 none        
+redis         none
 
 --------------------------------------------------------------------------------
 
