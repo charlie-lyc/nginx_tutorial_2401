@@ -25,6 +25,9 @@ http://localhost:8080 으로 접속하면
 % cd nginx-docker
 % npm init -y
 % npm install express
+...
+% code index.js
+...
 
 
 --------------------------------------------------------------------------------
