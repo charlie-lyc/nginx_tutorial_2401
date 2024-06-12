@@ -1,19 +1,66 @@
+% nginx -s stop
+
 --------------------------------------------------------------------------------
-### [3] 참고로 ReactJS application on NginX 일 경우
 
-### /nignx.conf
+http://localhost:8080 으로 접속하면 
+이전과 다르게 열리지 않는 것을 확인하고 
+이 상태에서 아래의 과정을 진행
 
-server {
-    listen 80;
-    location / {
-        root    /app/build;
-        index   index.html;
-	    try_files $uri $uri/ /index.html;
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+### [3] NodeJS(ExpressJS) server on NginX in Docker 일 경우
+
+% mkdir ng
+--------------------------------------------------------------------------------
+
+
+
+### /nginx.conf
+
+http {
+    include mime.types;
+    upstream backendserver {
+        server 127.0.0.1:1111;
+        server 127.0.0.1:2222;
+        server 127.0.0.1:3333;
+    }
+    server {
+        listen 8080;
+        root /app;
+        location / {
+            proxy_pass http://backendserver/;
+        }
+
     }
 
 }
 
 --------------------------------------------------------------------------------
+### /Dockerfile
+
+# Use the official Node.js image from Docker Hub
+FROM node:20
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy only the package.json and package-lock.json (if exists) to leverage Docker cache
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of the application files to the container
+COPY . .
+
+# Set port number
+EXPOSE 7777
+
+# Set the default command to run the application
+CMD ["npm", "start"]
+# 또는
+# CMD ["node", "index.js"]
+
 
 ### /Dockerfile
 
@@ -51,9 +98,6 @@ EXPOSE 80
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
-
-
-
 
 --------------------------------------------------------------------------------
 
