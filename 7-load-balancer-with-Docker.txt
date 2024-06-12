@@ -56,7 +56,7 @@ I am an endpoint.
 Search in Google : "dockerfile from expressjs app"
 
 --------------------------------------------------------------------------------
-### [1] NodeJS(ExpressJS) server 일 경우
+## [1] NodeJS(ExpressJS) server 일 경우
 
 ### /Users/charlie/Desktop/mysite/server/Dockerfile
 
@@ -227,8 +227,7 @@ NginX at 8080 : Load Balancer at 1111, 2222, and 3333
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-
-### [2] ReactJS application 일 경우에는
+## [2] 참고로 ReactJS application 일 경우
 
 % cd /Users/charlie/Desktop/mysite
 % npm create-react-app reactapp
