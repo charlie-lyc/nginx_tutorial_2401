@@ -38,10 +38,31 @@ drwxr-xr-x  2 charlie  admin    64B Jun 10 00:57 servers
 
 ---------------------------------------------------------------------------
 
+% brew services ls
+Name          Status User File
+mysql         none        
+nginx         none        
+podman        none        
+postgresql@14 none        
+postgresql@15 none        
+redis         none
+
 % brew services start nginx
+==> Successfully started `nginx` (label: homebrew.mxcl.nginx)
+
+% brew services ls         
+Name          Status  User    File
+mysql         none            
+nginx         started charlie ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
+podman        none            
+postgresql@14 none            
+postgresql@15 none            
+redis         none
 
 ---------------------------------------------------------------------------
-http://localhost:8080
+
+Type in browser http://localhost:8080
+
 ---------------------------------------------------------------------------
 
 % nginx -h
@@ -55,7 +76,7 @@ Options:
   -t            : test configuration and exit
   -T            : test configuration, dump it and exit
   -q            : suppress non-error messages during configuration testing
-  -s signal     : send signal to a master process: stop, quit, reopen, reload
+  -s signal     : send signal to a master process: stop, quit, reopen, reload   <===== !!!
   -p prefix     : set prefix path (default: /opt/homebrew/Cellar/nginx/1.27.0/)
   -e filename   : set error log file (default: /opt/homebrew/var/log/nginx/error.log)
   -c filename   : set configuration file (default: /opt/homebrew/etc/nginx/nginx.conf)
