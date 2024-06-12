@@ -80,8 +80,6 @@ EXPOSE 7777
 
 # Set the default command to run the application
 CMD ["npm", "start"]
-# 또는
-# CMD ["node", "index.js"]
 
 --------------------------------------------------------------------------------
 // in terminal on vs code
