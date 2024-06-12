@@ -218,7 +218,7 @@ After: I am an endpoint.
 요약하면,
 
 Docker at 1111 : Application at 7777
-=> http://localhost:1111 통해서 "앱" 작동 확인 
+=> http://localhost:1111 통해서 "서버" 작동 확인 
 => I am an endpoint.
 
 NginX at 8080 : Load Balancer at 1111, 2222, and 3333
