@@ -56,7 +56,9 @@ I am an endpoint.
 Search in Google : "dockerfile from expressjs app"
 
 --------------------------------------------------------------------------------
-### /Users/charlie/Desktop/mysite/Dockerfile
+### [1] NodeJS(ExpressJS) server 일 경우
+
+### /Users/charlie/Desktop/mysite/server/Dockerfile
 
 # Use the official Node.js image from Docker Hub
 FROM node:20
@@ -223,4 +225,127 @@ NginX at 8080 : Load Balancer at 1111, 2222, and 3333
 => http://localhost:8080 통해서 "로드 밸런서" 작동 확인
 => I am an endpoint.
 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+### [2] 참고로 ReactJS application 일 경우
+
+% cd /Users/charlie/Desktop/mysite
+% npm create-react-app reactapp
+...
+% cd reactapp
+
+--------------------------------------------------------------------------------
+
+### /Users/charlie/Desktop/mysite/reactapp/Dockerfile
+
+# Use an official Node.js runtime as a parent image
+FROM node:20
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Build the React application
+RUN npm run build
+
+# Install a simple HTTP server to serve the static files
+RUN npm install -g serve
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Set the command to run the app
+CMD ["serve", "-s", "build"]
+
+--------------------------------------------------------------------------------
+
+% docker build . -t <image name>
+...
+% docker run -p 8080:3000 -d --name <contaniner name> <image name>
+...
+
+--------------------------------------------------------------------------------
+
+Type in browser : http://localhost:8080
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+### [3] 참고로 ReactJS application on NginX 일 경우
+
+### /nignx.conf
+
+server {
+    listen 80;
+    location / {
+        root    /app/build;
+        index   index.html;
+	    try_files $uri $uri/ /index.html;
+    }
+
+}
+
+--------------------------------------------------------------------------------
+
+### /Dockerfile
+
+# Stage 1: Build the React app
+FROM node:20 as build
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application
+COPY . .
+
+# Build the app
+RUN npm run build
+
+# And then,
+
+# Stage 2: Serve the app with Nginx
+FROM nginx
+
+# Copy the Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy the build output to the Nginx HTML directory
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+--------------------------------------------------------------------------------
+
+% docker build . -t <image name>
+...
+% docker run -p 1111:7777 -d --name <contaniner name> <image name>
+...
+
+--------------------------------------------------------------------------------
+
+Type in browser : http://localhost:8080
+
+--------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
