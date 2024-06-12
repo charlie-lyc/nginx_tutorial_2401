@@ -140,6 +140,8 @@ What's Next?
 
 // 포트 매핑   -> 다커 : 앱
 % docker run -p 1111:7777 -d myserver
+// 또는
+% docker run -p 1111:7777 -d --name <contaniner name> myserver
 
 --------------------------------------------------------------------------------
 
