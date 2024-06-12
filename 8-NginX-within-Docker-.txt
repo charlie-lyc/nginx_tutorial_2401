@@ -89,7 +89,7 @@ version: '1.0'
 services:
   express:
     build: .
-    container_name: express-server_contain
+    container_name: express-docker_contain
     ports:
       - "9999:9999"
   nginx:
